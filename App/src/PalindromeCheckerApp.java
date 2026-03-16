@@ -1,26 +1,33 @@
 /**
  * ============================================================
- * MAIN CLASS - UseCase3PalindromeCheckerApp
+ * MAIN CLASS - UseCase4PalindromeCheckerApp
  * ============================================================
- * Use Case 3: Palindrome Check Using String Reverse
+ * Use Case 4: Character Array Based Palindrome Check
  */
 
-public class UseCase3PalindromeCheckerApp {
+public class UseCase4PalindromeCheckerApp {
 
     public static void main(String[] args) {
 
         String input = "madam";
-        String reversed = "";
+        char[] chars = input.toCharArray();
 
-        // Reverse the string using loop
-        for (int i = input.length() - 1; i >= 0; i--) {
-            reversed = reversed + input.charAt(i);
+        int start = 0;
+        int end = chars.length - 1;
+        boolean isPalindrome = true;
+
+        while (start < end) {
+
+            if (chars[start] != chars[end]) {
+                isPalindrome = false;
+                break;
+            }
+
+            start++;
+            end--;
         }
 
-        boolean isPalindrome = input.equals(reversed);
-
         System.out.println("Input text: " + input);
-        System.out.println("Reversed text: " + reversed);
         System.out.println("Is it a Palindrome?: " + isPalindrome);
     }
 }
